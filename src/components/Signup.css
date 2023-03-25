@@ -1,0 +1,9 @@
+.mobile-style {
+  width: 35rem;
+}
+
+@media screen and (max-width: 600px) {
+  .mobile-style {
+    width: 80%;
+  }
+}
