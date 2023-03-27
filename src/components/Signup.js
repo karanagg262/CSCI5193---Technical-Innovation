@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Signup.css";
+import signup from "../assets/signup.avif";
 
 export const Signup = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ export const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [address, setAddress] = useState("");
   const [error, setError] = useState({});
   const navigate = useNavigate();
 
@@ -29,6 +31,7 @@ export const Signup = () => {
       email,
       password,
       confirmPassword,
+      address,
     };
     setError(validateForm(formValue));
     if (errorFlag === 0) {
@@ -77,15 +80,58 @@ export const Signup = () => {
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
+          flexDirection: "row",
           height: "100vh",
+          justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Card className="mobile-style">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            maxWidth: "50%",
+            height: "100vh",
+            justifyContent: "flex-start",
+          }}
+        >
+          <div style={{ position: "relative", width: "100%" }}>
+            <img
+              src={signup}
+              draggable="false;"
+              alt="signup-image"
+              width="90%"
+              style={{
+                touchAction: "none",
+                "pointer-events": "none",
+                marginTop: "80px",
+              }}
+            />
+          </div>
+          <p
+            style={{
+              marginTop: "40px",
+              fontSize: "25px",
+            }}
+          >
+            “A cleaner environment means a greener community”
+          </p>
+        </div>
+
+        <Card style={{ background: "#87a743" }} className="mobile-style">
           <Card.Body>
             <h2 className="text-center mb-4">Signup</h2>
+            <p
+              style={{
+                fontStyle: "italic",
+                fontSize: "13px",
+                lineHeight: "12px",
+                color: "#4B4B4B",
+              }}
+            >
+              Please Note: For Pick-Up service you would be required to showcase
+              your NS ID for verification purposes.
+            </p>
             <Form onSubmit={handleSubmit}>
               <div style={{ textAlign: "left" }}>
                 <Form.Group id="firstName">
@@ -126,6 +172,19 @@ export const Signup = () => {
                   {" "}
                   {error.lastName}{" "}
                 </div>
+              </div>
+              <div style={{ textAlign: "left" }}>
+                <Form.Group id="address">
+                  <Form.Label>Address</Form.Label>
+                  <Form.Control
+                    name="address"
+                    type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    onSubmit={handleSubmit}
+                    required
+                  />
+                </Form.Group>
               </div>
               <div style={{ textAlign: "left" }}>
                 <Form.Group id="email">
@@ -197,6 +256,8 @@ export const Signup = () => {
                 <Button
                   style={{
                     marginTop: "30px",
+                    background: "#E8871E",
+                    border: "none",
                   }}
                   type="submit"
                 >

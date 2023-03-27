@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
+import signup from "../assets/signup.avif";
 
 export const Login = () => {
   const { state } = useLocation();
@@ -61,15 +62,61 @@ export const Login = () => {
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
+          flexDirection: "row",
           height: "100vh",
+          justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Card className="login-mobile-style">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            maxWidth: "50%",
+            height: "100vh",
+            justifyContent: "flex-start",
+          }}
+        >
+          <div style={{ width: "100%" }}>
+            <img
+              src={signup}
+              draggable="false;"
+              alt="signup-image"
+              width="90%"
+              style={{
+                touchAction: "none",
+                "pointer-events": "none",
+                marginTop: "80px",
+              }}
+            />
+          </div>
+          <p
+            style={{
+              marginTop: "40px",
+              fontSize: "25px",
+            }}
+          >
+            “A cleaner environment means a greener community”
+          </p>
+        </div>
+
+        <Card
+          style={{ background: "#87a743", marginBottom: "260px" }}
+          className="login-mobile-style"
+        >
           <Card.Body>
             <h2 className="text-center mb-4">Login</h2>
+            <p
+              style={{
+                fontStyle: "italic",
+                fontSize: "13px",
+                lineHeight: "12px",
+                color: "#4B4B4B",
+              }}
+            >
+              Please Note: For Pick-Up service you would be required to showcase
+              your NS ID for verification purposes.
+            </p>
             <Form onSubmit={handleSubmit}>
               <div style={{ textAlign: "left" }}>
                 <Form.Group id="email">
@@ -114,7 +161,14 @@ export const Login = () => {
                 )}
               </div>
 
-              <Button style={{ marginTop: "30px" }} type="submit">
+              <Button
+                style={{
+                  marginTop: "30px",
+                  background: "#E8871E",
+                  border: "none",
+                }}
+                type="submit"
+              >
                 Log In
               </Button>
             </Form>
