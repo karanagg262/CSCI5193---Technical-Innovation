@@ -1,27 +1,33 @@
 
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import recycleImage from '../recycleImage.svg';
-import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { width } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 const theme = createTheme();
 
 export default function RequestPickup() {
     const navigate= useNavigate();
+    const [open, setOpen] = React.useState(false);
+
+
+
+  const handleClose = () => {
+      window.location.reload();
+  
+  };
     const [values, setValues] = useState({
         firstName: '',
         lastName: '',
@@ -39,25 +45,26 @@ export default function RequestPickup() {
         });
       };
   const handleSubmit = (event) => {
-    setSuccess(false);
     event.preventDefault();
+    setOpen(true);
+    setSuccess(false);
+    
     const errors = validate(values);
     const data = new FormData(event.currentTarget);
+    
 
-    if (data.get('firstName')&&(data.get('lastName')&&data.get('contact')&& data.get('describe') && data.get('address'))) {
-        setSuccess(navigate('/Login'));
-
-      
-    } else {
-        
-        setErrors(errors); 
+    if ((values.firstName && values.lastName && values.contact && values.describe && values.address1)) {
+       
         console.log(values);
+        setOpen(true);
+      
+    } 
+    else {
+        setOpen(false);
+        setErrors(errors); 
+        
     }
-    //const data = new FormData(event.currentTarget);
-    console.log({
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-    });
+ 
    
   }
   function validate(values) {
@@ -104,11 +111,8 @@ export default function RequestPickup() {
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            // backgroundSize: 'cover',
             backgroundPosition: 'center',
-            height: '100vh',
-            // width:'40vh',
-           
+            height: '100vh',           
         
           }}
         />
@@ -124,12 +128,7 @@ export default function RequestPickup() {
             }}
           >
              <h1>Request Pick Up</h1>
-            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography> */}
+            
      <Box
      component="form" noValidate onSubmit={handleSubmit} 
       sx={{
@@ -230,7 +229,27 @@ export default function RequestPickup() {
               >
                Request Pick Up 
               </Button>
-            
+              <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Congratulations!"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+          You request has been confirmed!
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>ok</Button>
+        
+        </DialogActions>
+      </Dialog>
+    
+  
             </Box>
           </Box>
         </Grid>

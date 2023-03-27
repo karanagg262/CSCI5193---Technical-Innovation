@@ -52,7 +52,6 @@ export default function RequestPickup() {
         setErrors(errors); 
         console.log(values);
     }
-    //const data = new FormData(event.currentTarget);
     console.log({
       firstName: data.get('firstName'),
       lastName: data.get('lastName'),
@@ -96,10 +95,8 @@ export default function RequestPickup() {
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            // backgroundSize: 'cover',
             backgroundPosition: 'center',
             height: '100vh',
-            // width:'40vh',
            
         
           }}
@@ -117,12 +114,7 @@ export default function RequestPickup() {
             }}
           >
              <h1>Contact Us</h1>
-            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography> */}
+     
             
      <Box
      component="form" noValidate onSubmit={handleSubmit} 
