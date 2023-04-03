@@ -1,9 +1,10 @@
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form, Button, Nav } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import signup from "../assets/signup.avif";
+import Navbar from "./Navbar";
 
 export const Login = () => {
   const { state } = useLocation();
@@ -58,7 +59,7 @@ export const Login = () => {
   };
 
   return (
-    <>
+    <><Navbar />
       <div
         style={{
           display: "flex",

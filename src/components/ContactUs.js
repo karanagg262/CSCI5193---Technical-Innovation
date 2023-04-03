@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { width } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Navbar from './Navbar';
 
 
 const theme = createTheme();
@@ -82,6 +83,7 @@ export default function RequestPickup() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Navbar />
       <Grid container component="main" >
         <CssBaseline />
        
