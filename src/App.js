@@ -4,6 +4,7 @@ import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
 import ContactUs  from "./components/ContactUs";
 import RequestPickup  from "./components/RequestPickup";
+import { Maps } from "./components/Maps";
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/requestpickup" element={<RequestPickup />}></Route>
         <Route path="/contactus" element={<ContactUs />}></Route>
+        <Route path="/maps" element={<Maps />}></Route>
       </Routes>
     </div>
   );
