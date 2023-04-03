@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { render } from "react-dom";
+
 import Map, {
   Marker,
   NavigationControl,
@@ -15,7 +15,7 @@ import * as turf from "@turf/turf";
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoia3IyODQyMjkiLCJhIjoiY2xmbjRkdG1uMDNwczN4bGRuamZhcGpiNiJ9.yaBdwD5KE87RN8enRQt72g"; // Set your mapbox token here
 
-  export const Maps = () => {
+export const Maps = () => {
   const [userLocation, setUserLocation] = useState(null);
 
   const onGeolocate = (position) => {
@@ -73,25 +73,24 @@ const MAPBOX_TOKEN =
             latitude={marker.latitude}
           >
             {userLocation &&
-              `${turf.distance(
-                turf.point([userLocation.longitude, userLocation.latitude]),
-                turf.point([marker.longitude, marker.latitude]),
-                { units: "kilometers" }
-                ).toFixed(2)} km`}
-                </Popup>
-                </Marker>
-                ))}
-                <NavigationControl />
-                <GeolocateControl
-                     trackUserLocation={true}
-                     showUserHeading={true}
-                     onGeolocate={onGeolocate}
-                   />
-                <FullscreenControl />
-                <ScaleControl />
-                </Map>
-                );
-                }
-                
-        
-render(<Maps />, document.body.appendChild(document.createElement("div")));
+              `${turf
+                .distance(
+                  turf.point([userLocation.longitude, userLocation.latitude]),
+                  turf.point([marker.longitude, marker.latitude]),
+                  { units: "kilometers" }
+                )
+                .toFixed(2)} km`}
+          </Popup>
+        </Marker>
+      ))}
+      <NavigationControl />
+      <GeolocateControl
+        trackUserLocation={true}
+        showUserHeading={true}
+        onGeolocate={onGeolocate}
+      />
+      <FullscreenControl />
+      <ScaleControl />
+    </Map>
+  );
+};
