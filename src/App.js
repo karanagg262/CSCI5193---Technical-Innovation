@@ -4,6 +4,7 @@ import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
 import ContactUs  from "./components/ContactUs";
 import RequestPickup  from "./components/RequestPickup";
+import Homepage from "./components/Homepage";
 import { Maps } from "./components/Maps";
 
 import "./App.css";
@@ -13,7 +14,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Login />} />
+      <Route path="/" element={<Homepage />}></Route>
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/requestpickup" element={<RequestPickup />}></Route>
         <Route path="/contactus" element={<ContactUs />}></Route>
