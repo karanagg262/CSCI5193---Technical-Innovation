@@ -127,7 +127,7 @@ export default function RequestPickup() {
                mt: 1
             }}
           >
-             <h1>Request Pick Up</h1>
+             <h1><b>Request Pick Up </b></h1>
             
      <Box
      component="form" noValidate onSubmit={handleSubmit} 

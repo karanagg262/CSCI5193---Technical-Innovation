@@ -44,7 +44,7 @@ export default function RequestPickup() {
     const data = new FormData(event.currentTarget);
 
     if (data.get('firstName')&&(data.get('lastName')&&data.get('email'))) {
-        setSuccess(navigate('/Login'));
+        setSuccess(navigate('/'));
 
       
     } else {
@@ -113,7 +113,7 @@ export default function RequestPickup() {
                mt: 5
             }}
           >
-             <h1>Contact Us</h1>
+             <h1><b>Contact Us</b></h1>
      
             
      <Box

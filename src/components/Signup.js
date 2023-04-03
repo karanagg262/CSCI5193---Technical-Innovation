@@ -62,7 +62,7 @@ export const Signup = () => {
     } else if (data.email === "" || emailRegex.test(data.email) === false) {
       errorFlag = 1;
       errorMessage.email = "Email is not valid";
-    } else if (passwordRegex.test(data.password) == false) {
+    } else if (passwordRegex.test(data.password) === false) {
       errorFlag = 1;
       errorMessage.password =
         "Password must be more than 8 characters, must have at least one uppercase letter, one lowercase letter, one number and one special character";
