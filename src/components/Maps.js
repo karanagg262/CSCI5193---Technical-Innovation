@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import Navbar from './Navbar';
+import './Maps.css'
 
 import Map, {
   Marker,
@@ -27,24 +28,24 @@ export const Maps = () => {
   };
 
   const markers = [
-    { longitude: -63.57892, latitude: 44.6434516 },
-    { longitude: -63.5766997, latitude: 44.6494304 },
-    { longitude: -63.604171, latitude: 44.6594156 },
-    { longitude: -63.62237119567033, latitude: 44.6480109290126 },
-    { longitude: -63.6564924, latitude: 44.6613614 },
-    { longitude: -63.57239, latitude: 44.64533 },
-    { longitude: -63.574431, latitude: 44.637594 },
-    { longitude: -63.5837315, latitude: 44.6378638 },
-    { longitude: -63.591039, latitude: 44.637421 },
-    { longitude: -63.586743, latitude: 44.641108 },
-    { longitude: -63.60189, latitude: 44.644301 },
-    { longitude: -63.600959, latitude: 44.659217 },
-    { longitude: -63.619607, latitude: 44.64761 },
-    { longitude: -63.6209577, latitude: 44.6626439 },
-    { longitude: -63.602621, latitude: 44.662628 },
-    { longitude: -63.6249627, latitude: 44.6398452 },
-    { longitude: -63.631785, latitude: 44.659581 },
-    { longitude: -63.6165942, latitude: 44.6130235 },
+    { longitude: -63.57892, latitude: 44.6434516, percentage: "15%" },
+    { longitude: -63.5766997, latitude: 44.6494304, percentage: "30%"  },
+    { longitude: -63.604171, latitude: 44.6594156, percentage: "65%"  },
+    { longitude: -63.62237119567033, latitude: 44.6480109290126, percentage: "55%"  },
+    { longitude: -63.6564924, latitude: 44.6613614, percentage: "12%"  },
+    { longitude: -63.57239, latitude: 44.64533, percentage: "18%"  },
+    { longitude: -63.574431, latitude: 44.637594, percentage: "2%"  },
+    { longitude: -63.5837315, latitude: 44.6378638, percentage: "46%"  },
+    { longitude: -63.591039, latitude: 44.637421, percentage: "86%"  },
+    { longitude: -63.586743, latitude: 44.641108, percentage: "34%"  },
+    { longitude: -63.60189, latitude: 44.644301, percentage: "76%"  },
+    { longitude: -63.600959, latitude: 44.659217, percentage: "11%"  },
+    { longitude: -63.619607, latitude: 44.64761, percentage: "45%"  },
+    { longitude: -63.6209577, latitude: 44.6626439, percentage: "65%"  },
+    { longitude: -63.602621, latitude: 44.662628, percentage: "23%"  },
+    { longitude: -63.6249627, latitude: 44.6398452, percentage: "47%"  },
+    { longitude: -63.631785, latitude: 44.659581, percentage: "72%"  },
+    { longitude: -63.6165942, latitude: 44.6130235, percentage: "38%"  },
   ];
 
   return (
@@ -82,6 +83,17 @@ export const Maps = () => {
                 )
                 .toFixed(2)} km`}
           </Popup>
+            <Popup
+              closeButton={false}
+              closeOnClick={false}
+              longitude={marker.longitude}
+              latitude={marker.latitude}
+              anchor="top"
+              maxWidth="150px"
+              className="popup"
+            >
+              {marker.percentage}
+            </Popup>
         </Marker>
       ))}
       <NavigationControl />
