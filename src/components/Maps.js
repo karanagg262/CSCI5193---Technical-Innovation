@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
+import Navbar from './Navbar';
 
 import Map, {
   Marker,
@@ -47,7 +48,7 @@ export const Maps = () => {
   ];
 
   return (
-    <Map
+    <><Navbar /><Map
       initialViewState={{
         latitude: 44.6434516,
         longitude: -63.57892,
@@ -87,10 +88,9 @@ export const Maps = () => {
       <GeolocateControl
         trackUserLocation={true}
         showUserHeading={true}
-        onGeolocate={onGeolocate}
-      />
+        onGeolocate={onGeolocate} />
       <FullscreenControl />
       <ScaleControl />
-    </Map>
+    </Map></>
   );
 };

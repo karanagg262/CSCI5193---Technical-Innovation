@@ -15,6 +15,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import './Navbar.css';
+import Navbar from './Navbar';
 
 const theme = createTheme();
 
@@ -98,6 +100,7 @@ export default function RequestPickup() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Navbar />
       <Grid container component="main" >
         <CssBaseline />
        
