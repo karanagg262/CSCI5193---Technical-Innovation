@@ -4,7 +4,7 @@ import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
 
 import "./App.css";
-import Routes from "./Routes.js";
+
 function App() {
   return (
     <div className="App">
