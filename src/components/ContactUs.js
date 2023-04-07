@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { width } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import axios from 'axios'
 
 const theme = createTheme();
 
@@ -25,7 +25,7 @@ export default function RequestPickup() {
     const [values, setValues] = useState({
         firstName: '',
         lastName: '',
-        email:'',
+        contact:'',
         describe: '',
       });
     
@@ -43,19 +43,36 @@ export default function RequestPickup() {
     const errors = validate(values);
     const data = new FormData(event.currentTarget);
 
-    if (data.get('firstName')&&(data.get('lastName')&&data.get('email'))) {
-        setSuccess(navigate('/Login'));
-
+    if ((values.firstName && values.lastName && values.contact && values.describe)) {
+      // window.location.reload();
+ 
+        axios.post(`http://localhost:5000/contactus`, {
+          contact:values.contact,
+          firstName: values.firstName,
+          lastName: values.lastName,
+          describe:values.describe
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+            'mode': 'no-cors'
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            window.location.reload();
+            // setSuccess(navigate('/contactus'));
+           
+      
+    }); 
+  
+  
       
     } else {
         
         setErrors(errors); 
         console.log(values);
     }
-    console.log({
-      firstName: data.get('firstName'),
-      lastName: data.get('lastName'),
-    });
+ 
    
   }
   function validate(values) {
@@ -70,9 +87,13 @@ export default function RequestPickup() {
             errors.lastName = 'Last Name is required';
             
         }
-        if (!values.email) {
+        if (!values.contact) {
            
             errors.contact = 'Contact is required';
+        }
+        if(!values.describe)
+        {
+          errors.describe = "description required";
         }
       
         return errors;
@@ -117,7 +138,8 @@ export default function RequestPickup() {
      
             
      <Box
-     component="form" noValidate onSubmit={handleSubmit} 
+     component="form" noValidate 
+     onSubmit={handleSubmit} 
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -163,9 +185,9 @@ export default function RequestPickup() {
         <Grid item xs={12}>
           <TextField
             required
-            id="email"
-            name="email"
-            label="Email"
+            id="contact"
+            name="contact"
+            label="Contact"
             fullWidth
             
             variant="standard"
@@ -199,6 +221,7 @@ export default function RequestPickup() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                // onClick={handleSubmit}
               >
                Submit
               </Button>

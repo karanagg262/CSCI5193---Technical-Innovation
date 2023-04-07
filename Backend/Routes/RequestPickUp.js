@@ -10,10 +10,10 @@ router.post('/requestpickup', async(req, res) => {
         await newPickup.save();
     
         // Return success message
-        res.status(201).json({ message: 'User created successfully.' });
+        res.status(201).json({ message: 'Request created successfully.' });
       } catch (error) {
         console.error('Error in POST /requestpickup:', error);
-        res.status(500).json({ message: 'Error creating user.' });
+        res.status(500).json({ message: 'Error creating request.' });
       
       }
     
