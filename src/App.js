@@ -7,6 +7,9 @@ import RequestPickup  from "./components/RequestPickup";
 import Homepage from "./components/Homepage";
 import { Maps } from "./components/Maps";
 import Resources from "./components/Resources";
+import Resource1 from "./components/Resource1";
+import Resource2 from "./components/Resource2";
+import Resource3 from "./components/Resource3";
 
 import "./App.css";
 
@@ -22,6 +25,9 @@ function App() {
         <Route path="/contactus" element={<ContactUs />}></Route>
         <Route path="/maps" element={<Maps />}></Route>
         <Route path="/resources" element={<Resources />}></Route>
+        <Route path="/resource1" element={<Resource1 />}></Route>
+        <Route path="/resource2" element={<Resource2 />}></Route>
+        <Route path="/resource3" element={<Resource3 />}></Route>
       </Routes>
     </div>
   );
