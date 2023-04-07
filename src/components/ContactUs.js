@@ -17,6 +17,7 @@ import { width } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios'
+import Navbar from './Navbar';
 
 const theme = createTheme();
 
