@@ -15,7 +15,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+
+import './Navbar.css';
+import Navbar from './Navbar';
+
+
 import axios from 'axios';
+
 const theme = createTheme();
 
 export default function RequestPickup() {
@@ -114,6 +120,7 @@ export default function RequestPickup() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Navbar />
       <Grid container component="main" >
         <CssBaseline />
        
@@ -143,7 +150,7 @@ export default function RequestPickup() {
                mt: 1
             }}
           >
-             <h1>Request Pick Up</h1>
+             <h1><b>Request Pick Up </b></h1>
             
      <Box
      component="form" noValidate onSubmit={handleSubmit} 

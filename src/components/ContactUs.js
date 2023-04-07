@@ -103,6 +103,7 @@ export default function RequestPickup() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Navbar />
       <Grid container component="main" >
         <CssBaseline />
        
@@ -134,7 +135,7 @@ export default function RequestPickup() {
                mt: 5
             }}
           >
-             <h1>Contact Us</h1>
+             <h1><b>Contact Us</b></h1>
      
             
      <Box

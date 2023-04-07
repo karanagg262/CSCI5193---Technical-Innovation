@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  border: 0;
+}
+
+.login-mobile-style {
+  width: 30rem;
+  border-radius: 12px;
+  margin-right: 100px;
+}
+
+.mb-4 {
+  margin-bottom: 0.5rem !important;
+}
+
+@media screen and (max-width: 600px) {
+  .login-mobile-style {
+    width: 80%;
+    margin-right: 40px;
+    border-radius: 7px;
+  }
+}
