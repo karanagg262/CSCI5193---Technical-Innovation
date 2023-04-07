@@ -15,7 +15,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
+import axios from 'axios';
 const theme = createTheme();
 
 export default function RequestPickup() {
@@ -57,8 +57,24 @@ export default function RequestPickup() {
        
         console.log(values);
         setOpen(true);
+        axios.post(`http://localhost:5000/requestpickup`, {
+          contact:values.contact,
+          firstName: values.firstName,
+          lastName: values.lastName,
+      address1:values.address1,
+      describe:values.describe
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+            'mode': 'no-cors'
+          },
+        })
+          .then((response) => {
+            console.log(response);
+        
       
-    } 
+    }); 
+  }
     else {
         setOpen(false);
         setErrors(errors); 
