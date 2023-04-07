@@ -8,4 +8,7 @@ app.get('/', (req, res) => {
 app.post('/requestpickup',(req,res) => {
     res.send("hfb");
 })
+app.post('/contactus',(req,res) => {
+    res.send("Contact Request");
+})
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))

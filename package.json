@@ -1,4 +1,5 @@
 {
+  
   "name": "e-cycle-halifax",
   "version": "0.1.0",
   "private": true,
@@ -53,3 +54,4 @@
     ]
   }
 }
+

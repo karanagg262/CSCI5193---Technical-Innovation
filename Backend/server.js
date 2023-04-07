@@ -5,7 +5,7 @@ const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 
 const requestpickup = require('./Routes/RequestPickUp');
-
+const contactRequest = require('./Routes/ContactUs')
 const config = require('./config');
 
 const MONGO_URI = config.mongodb.uri;
@@ -14,6 +14,7 @@ const cors = require('cors');
 const flash = require('connect-flash');
 
 const bodyParser = require('body-parser');
+const ContactRequests = require('./Models/ContactRequests');
 
 
 const app = express();
@@ -52,5 +53,6 @@ app.use(cors(corsOptions));
 app.use(flash()); // <- call the connect-flash function to create the middleware
 
 app.use('/',requestpickup);
+app.use('/',contactRequest);
 
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
