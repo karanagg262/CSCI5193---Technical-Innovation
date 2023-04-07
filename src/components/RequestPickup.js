@@ -15,13 +15,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-<<<<<<< HEAD
+
 import './Navbar.css';
 import Navbar from './Navbar';
 
-=======
+
 import axios from 'axios';
->>>>>>> Mounisha
+
 const theme = createTheme();
 
 export default function RequestPickup() {
