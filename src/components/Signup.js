@@ -66,8 +66,7 @@ export const Signup = () => {
   const validateForm = (data) => {
     const letterRegex = /^[a-zA-Z\s]*$/; //Reference: https://stackoverflow.com/questions/12778083/regex-with-space-and-letters-only
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/; //Reference : https://regexr.com/3e48o
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; //Reference: https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; //Reference: https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
     const errorMessage = {};
     if (letterRegex.test(data.firstName) === false) {
       errorFlag = 1;
@@ -145,8 +144,8 @@ export const Signup = () => {
                 color: "#4B4B4B",
               }}
             >
-              Please Note: For Pick-Up service you would be required to showcase
-              your NS ID for verification purposes.
+              Please Note: For Pick-Up service you would be required to showcase your NS ID for
+              verification purposes.
             </p>
             <Form onSubmit={handleSubmit}>
               <div style={{ textAlign: "left" }}>
@@ -161,10 +160,7 @@ export const Signup = () => {
                     required
                   />
                 </Form.Group>
-                <div
-                  className="error"
-                  style={{ color: "red", fontSize: "14px" }}
-                >
+                <div className="error" style={{ color: "red", fontSize: "14px" }}>
                   {" "}
                   {error.firstName}{" "}
                 </div>
@@ -181,10 +177,7 @@ export const Signup = () => {
                     required
                   />
                 </Form.Group>
-                <div
-                  className="error"
-                  style={{ color: "red", fontSize: "14px" }}
-                >
+                <div className="error" style={{ color: "red", fontSize: "14px" }}>
                   {" "}
                   {error.lastName}{" "}
                 </div>
@@ -214,10 +207,7 @@ export const Signup = () => {
                     required
                   />
                 </Form.Group>
-                <div
-                  className="error"
-                  style={{ color: "red", fontSize: "14px" }}
-                >
+                <div className="error" style={{ color: "red", fontSize: "14px" }}>
                   {" "}
                   {error.email}{" "}
                 </div>
@@ -237,10 +227,7 @@ export const Signup = () => {
                 </Form.Group>
 
                 {error && (
-                  <div
-                    className="error"
-                    style={{ color: "red", fontSize: "14px" }}
-                  >
+                  <div className="error" style={{ color: "red", fontSize: "14px" }}>
                     {" "}
                     {error.password}{" "}
                   </div>
@@ -260,10 +247,7 @@ export const Signup = () => {
                   />
                 </Form.Group>
                 {error && (
-                  <div
-                    className="error"
-                    style={{ color: "red", fontSize: "14px" }}
-                  >
+                  <div className="error" style={{ color: "red", fontSize: "14px" }}>
                     {" "}
                     {error.confirmPassword}{" "}
                   </div>
@@ -282,10 +266,7 @@ export const Signup = () => {
                 </Button>
               </div>
             </Form>
-            <div
-              className="w-100 text-right mt -2"
-              style={{ marginTop: "20px" }}
-            >
+            <div className="w-100 text-right mt -2" style={{ marginTop: "20px" }}>
               Already Registered?{" "}
               <Link to="/Login" style={{ textDecoration: "none" }}>
                 Login
