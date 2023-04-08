@@ -1,5 +1,5 @@
 # E-Cycle Halifax
-## Date Created*: 08th April 2023
+## Date Created: 08th April 2023
 
 - Group Name: Group 1
 - Group Name: E-Cycle Halifax
