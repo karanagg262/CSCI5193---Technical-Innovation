@@ -1,3 +1,5 @@
+// References: [1] https://git.cs.dal.ca/prasla/csci5410-f23-b00899528/-/tree/A2/frontend
+//             [2] https://git.cs.dal.ca/prasla/csci-5709/-/blob/tutorial3/src/Registration.js
 import { Card, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

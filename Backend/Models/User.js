@@ -1,3 +1,4 @@
+// References: https://git.cs.dal.ca/ruchika/csci-5709-group04/-/tree/saifali/src
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 

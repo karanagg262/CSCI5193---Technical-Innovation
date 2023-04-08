@@ -1,3 +1,5 @@
+//References: https://git.cs.dal.ca/prasla/csci5410-f23-b00899528/-/tree/A2/frontend
+
 import { Card, Form, Button, Nav } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
