@@ -39,9 +39,12 @@ export const Signup = () => {
       localStorage.setItem("email", email);
 
       try {
-        const response = await axios.post("http://localhost:8080/addUser", {
-          ...formValue,
-        });
+        const response = await axios.post(
+          "https://e-cycle-halifax.onrender.com/addUser",
+          {
+            ...formValue,
+          }
+        );
         alert(response.data.statusMessage);
         console.log(response.data);
         navigate("/Login");
@@ -51,12 +54,12 @@ export const Signup = () => {
         } else {
           console.error(error.message);
         }
-        // setFirstName("");
-        // setLastName("");
-        // setEmail("");
-        // setPassword("");
-        // setConfirmPassword("");
-        // setAddress("");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setAddress("");
       }
     } else {
       console.log(error);

@@ -32,7 +32,7 @@ export const Login = () => {
         console.log("Inside login page");
         console.log(formValue);
         const response = await axios.post(
-          "http://localhost:8080/authenticateUser",
+          "https://e-cycle-halifax.onrender.com/authenticateUser",
           {
             ...formValue,
           }
