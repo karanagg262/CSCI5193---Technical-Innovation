@@ -15,11 +15,11 @@ router.post("/addUser", async (req, res) => {
     if (emailExistsResult.status === 409) {
       return res.status(409).json({ message: emailExistsResult.message });
     }
-
-    const newUser = await UserDetails.createUser({
+    const newUser = new UserDetails({
       ...req.body,
       password: hashedPassword,
     });
+    await newUser.save();
 
     res.json({
       createdUser: newUser.transform(),
@@ -38,6 +38,7 @@ router.post("/authenticateUser", async (req, res) => {
     const { email, password } = req.body;
     console.log(email, password);
     const emailExistsResult = await checkIfEmailExists(email);
+    console.log(emailExistsResult);
     console.log(emailExistsResult.hashedPassword);
     if (emailExistsResult.status === 409) {
       const isMatch = bcrypt.compareSync(
@@ -58,10 +59,8 @@ router.post("/authenticateUser", async (req, res) => {
 });
 
 async function checkIfEmailExists(email) {
-  const existingUser = await UserDetails.findOne(
-    { email },
-    { maxTimeMS: 15000 }
-  );
+  const existingUser = await UserDetails.findOne({ email });
+
   if (existingUser) {
     return {
       status: 409,

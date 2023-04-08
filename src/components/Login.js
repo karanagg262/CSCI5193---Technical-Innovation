@@ -33,14 +33,14 @@ export const Login = () => {
         console.log("Inside login page");
         console.log(formValue);
         const response = await axios.post(
-          "https://localhost:8080/authenticateUser",
+          "http://localhost:8080/authenticateUser",
           {
             ...formValue,
           }
         );
         alert(response.data.message);
         console.log(response.data);
-        navigate("/feed");
+        navigate("/resources");
       } catch (error) {
         if (error.response.status === 404) {
           alert(error.response.data.message);
@@ -111,8 +111,9 @@ export const Login = () => {
           </div>
           <p
             style={{
-              marginTop: "40px",
+              marginTop: "10px",
               fontSize: "25px",
+              marginLeft: "4rem",
             }}
           >
             “A cleaner environment means a greener community”
@@ -120,22 +121,11 @@ export const Login = () => {
         </div>
 
         <Card
-          style={{ background: "#87a743", marginBottom: "260px" }}
+          style={{ background: "#87a743", marginBottom: "263px" }}
           className="login-mobile-style"
         >
           <Card.Body>
             <h2 className="text-center mb-4">Login</h2>
-            <p
-              style={{
-                fontStyle: "italic",
-                fontSize: "13px",
-                lineHeight: "12px",
-                color: "#4B4B4B",
-              }}
-            >
-              Please Note: For Pick-Up service you would be required to showcase
-              your NS ID for verification purposes.
-            </p>
             <Form onSubmit={handleSubmit}>
               <div style={{ textAlign: "left" }}>
                 <Form.Group id="email">

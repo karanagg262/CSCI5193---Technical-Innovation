@@ -3,10 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const requestpickup = require("./Routes/RequestPickUp");
 const usermanagement = require("./Routes/UserManagement");
-const requestpickup = require("./Routes/RequestPickUp");
+
 const contactRequest = require("./Routes/ContactUs");
-const cors = require("cors");
-const flash = require("connect-flash");
 const cors = require("cors");
 const flash = require("connect-flash");
 
@@ -24,9 +22,9 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 
-app.use(flash()); // <- call the connect-flash function to create the middleware
+// app.use(flash()); // <- call the connect-flash function to create the middleware
 
 app.use("/", requestpickup);
 app.use("/", usermanagement);
