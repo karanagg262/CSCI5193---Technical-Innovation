@@ -14,8 +14,20 @@
 
 @media screen and (max-width: 600px) {
   .mobile-style {
-    width: 40%;
+    width: 80%;
     margin-right: 40px;
     border-radius: 7px;
+  }
+}
+.signup-message {
+  font-size: 25px;
+  margin-left: 4rem;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .signup-message {
+    font-size: 18px;
+    margin-left: 2rem;
+    margin-top: 10px;
   }
 }

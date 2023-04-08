@@ -107,89 +107,92 @@ export const Login = () => {
               }}
             />
           </div>
-          <p
-            style={{
-              marginTop: "10px",
-              fontSize: "25px",
-              marginLeft: "4rem",
-            }}
-          >
+          <p className="login-message">
             “A cleaner environment means a greener community”
           </p>
         </div>
-
-        <Card
-          style={{ background: "#87a743", marginBottom: "263px" }}
-          className="login-mobile-style"
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            maxWidth: "50%",
+            height: "100vh",
+            justifyContent: "flex-start",
+          }}
         >
-          <Card.Body>
-            <h2 className="text-center mb-4">Login</h2>
-            <Form onSubmit={handleSubmit}>
-              <div style={{ textAlign: "left" }}>
-                <Form.Group id="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    name="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onSubmit={handleSubmit}
-                    required
-                  />
-                </Form.Group>
-                <div
-                  className="error"
-                  style={{ color: "red", fontSize: "14px" }}
-                >
-                  {" "}
-                  {error.email}{" "}
-                </div>
-              </div>
-              <div style={{ textAlign: "left" }}>
-                <Form.Group id="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    name="password"
-                    type={"password"}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    onSubmit={handleSubmit}
-                    required
-                  />
-                </Form.Group>
-                {error && (
+          <Card
+            style={{ background: "#87a743", marginTop: "80px" }}
+            className="login-mobile-style"
+          >
+            <Card.Body>
+              <h2 className="text-center mb-4">Login</h2>
+              <Form onSubmit={handleSubmit}>
+                <div style={{ textAlign: "left" }}>
+                  <Form.Group id="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      name="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      onSubmit={handleSubmit}
+                      required
+                    />
+                  </Form.Group>
                   <div
                     className="error"
                     style={{ color: "red", fontSize: "14px" }}
                   >
                     {" "}
-                    {error.password}{" "}
+                    {error.email}{" "}
                   </div>
-                )}
-              </div>
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <Form.Group id="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      name="password"
+                      type={"password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      onSubmit={handleSubmit}
+                      required
+                    />
+                  </Form.Group>
+                  {error && (
+                    <div
+                      className="error"
+                      style={{ color: "red", fontSize: "14px" }}
+                    >
+                      {" "}
+                      {error.password}{" "}
+                    </div>
+                  )}
+                </div>
 
-              <Button
-                style={{
-                  marginTop: "30px",
-                  background: "#E8871E",
-                  border: "none",
-                }}
-                type="submit"
+                <Button
+                  style={{
+                    marginTop: "30px",
+                    background: "#E8871E",
+                    border: "none",
+                  }}
+                  type="submit"
+                >
+                  Log In
+                </Button>
+              </Form>
+              <div
+                className="w-100 text-right mt -2"
+                style={{ marginTop: "20px" }}
               >
-                Log In
-              </Button>
-            </Form>
-            <div
-              className="w-100 text-right mt -2"
-              style={{ marginTop: "20px" }}
-            >
-              Not Registered?{" "}
-              <Link to="/signup" style={{ textDecoration: "none" }}>
-                Signup
-              </Link>
-            </div>
-          </Card.Body>
-        </Card>
+                Not Registered?{" "}
+                <Link to="/signup" style={{ textDecoration: "none" }}>
+                  Signup
+                </Link>
+              </div>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
     </>
   );

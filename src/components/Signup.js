@@ -123,170 +123,176 @@ export const Signup = () => {
               style={{
                 touchAction: "none",
                 "pointer-events": "none",
-                marginTop: "80px",
+                marginTop: "70px",
               }}
             />
           </div>
-          <p
-            style={{
-              marginTop: "10px",
-              fontSize: "25px",
-              marginLeft: "4rem",
-            }}
-          >
+          <p className="signup-message">
             “A cleaner environment means a greener community”
           </p>
         </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            maxWidth: "50%",
+            height: "100vh",
+            justifyContent: "flex-start",
+          }}
+        >
+          <Card
+            style={{ background: "#87a743", marginTop: "70px" }}
+            className="mobile-style"
+          >
+            <Card.Body>
+              <h2 className="text-center mb-4">Signup</h2>
 
-        <Card style={{ background: "#87a743" }} className="mobile-style">
-          <Card.Body>
-            <h2 className="text-center mb-4">Signup</h2>
-
-            <Form onSubmit={handleSubmit}>
-              <div style={{ textAlign: "left" }}>
-                <Form.Group id="firstName">
-                  <Form.Label>First Name</Form.Label>
-                  <Form.Control
-                    name="firstName"
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    onSubmit={handleSubmit}
-                    required
-                  />
-                </Form.Group>
-                <div
-                  className="error"
-                  style={{ color: "red", fontSize: "14px" }}
-                >
-                  {" "}
-                  {error.firstName}{" "}
-                </div>
-              </div>
-              <div style={{ textAlign: "left" }}>
-                <Form.Group id="lastName">
-                  <Form.Label>Last Name</Form.Label>
-                  <Form.Control
-                    name="lastName"
-                    type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    onSubmit={handleSubmit}
-                    required
-                  />
-                </Form.Group>
-                <div
-                  className="error"
-                  style={{ color: "red", fontSize: "14px" }}
-                >
-                  {" "}
-                  {error.lastName}{" "}
-                </div>
-              </div>
-              <div style={{ textAlign: "left" }}>
-                <Form.Group id="address">
-                  <Form.Label>Address</Form.Label>
-                  <Form.Control
-                    name="address"
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    onSubmit={handleSubmit}
-                    required
-                  />
-                </Form.Group>
-              </div>
-              <div style={{ textAlign: "left" }}>
-                <Form.Group id="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    name="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onSubmit={handleSubmit}
-                    required
-                  />
-                </Form.Group>
-                <div
-                  className="error"
-                  style={{ color: "red", fontSize: "14px" }}
-                >
-                  {" "}
-                  {error.email}{" "}
-                </div>
-              </div>
-              <div style={{ textAlign: "left" }}>
-                <Form.Group id="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    name="password"
-                    type={"password"}
-                    value={password}
-                    placeholder="8+ characters"
-                    onChange={(e) => setPassword(e.target.value)}
-                    onSubmit={handleSubmit}
-                    required
-                  />
-                </Form.Group>
-
-                {error && (
+              <Form onSubmit={handleSubmit}>
+                <div style={{ textAlign: "left" }}>
+                  <Form.Group id="firstName">
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control
+                      name="firstName"
+                      type="text"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      onSubmit={handleSubmit}
+                      required
+                    />
+                  </Form.Group>
                   <div
                     className="error"
                     style={{ color: "red", fontSize: "14px" }}
                   >
                     {" "}
-                    {error.password}{" "}
+                    {error.firstName}{" "}
                   </div>
-                )}
-              </div>
-
-              <div style={{ textAlign: "left" }}>
-                <Form.Group id="confirmPassword">
-                  <Form.Label>Confirm Password</Form.Label>
-                  <Form.Control
-                    name="confirmPassword"
-                    type={"password"}
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    onSubmit={handleSubmit}
-                    required
-                  />
-                </Form.Group>
-                {error && (
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <Form.Group id="lastName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control
+                      name="lastName"
+                      type="text"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      onSubmit={handleSubmit}
+                      required
+                    />
+                  </Form.Group>
                   <div
                     className="error"
                     style={{ color: "red", fontSize: "14px" }}
                   >
                     {" "}
-                    {error.confirmPassword}{" "}
+                    {error.lastName}{" "}
                   </div>
-                )}
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <Form.Group id="address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control
+                      name="address"
+                      type="text"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      onSubmit={handleSubmit}
+                      required
+                    />
+                  </Form.Group>
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <Form.Group id="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      name="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      onSubmit={handleSubmit}
+                      required
+                    />
+                  </Form.Group>
+                  <div
+                    className="error"
+                    style={{ color: "red", fontSize: "14px" }}
+                  >
+                    {" "}
+                    {error.email}{" "}
+                  </div>
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <Form.Group id="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      name="password"
+                      type={"password"}
+                      value={password}
+                      placeholder="8+ characters"
+                      onChange={(e) => setPassword(e.target.value)}
+                      onSubmit={handleSubmit}
+                      required
+                    />
+                  </Form.Group>
+
+                  {error && (
+                    <div
+                      className="error"
+                      style={{ color: "red", fontSize: "14px" }}
+                    >
+                      {" "}
+                      {error.password}{" "}
+                    </div>
+                  )}
+                </div>
+
+                <div style={{ textAlign: "left" }}>
+                  <Form.Group id="confirmPassword">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control
+                      name="confirmPassword"
+                      type={"password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      onSubmit={handleSubmit}
+                      required
+                    />
+                  </Form.Group>
+                  {error && (
+                    <div
+                      className="error"
+                      style={{ color: "red", fontSize: "14px" }}
+                    >
+                      {" "}
+                      {error.confirmPassword}{" "}
+                    </div>
+                  )}
+                </div>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Button
+                    style={{
+                      marginTop: "30px",
+                      background: "#E8871E",
+                      border: "none",
+                    }}
+                    type="submit"
+                  >
+                    Register
+                  </Button>
+                </div>
+              </Form>
+              <div
+                className="w-100 text-right mt -2"
+                style={{ marginTop: "20px" }}
+              >
+                Already Registered?{" "}
+                <Link to="/Login" style={{ textDecoration: "none" }}>
+                  Login
+                </Link>
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <Button
-                  style={{
-                    marginTop: "30px",
-                    background: "#E8871E",
-                    border: "none",
-                  }}
-                  type="submit"
-                >
-                  Register
-                </Button>
-              </div>
-            </Form>
-            <div
-              className="w-100 text-right mt -2"
-              style={{ marginTop: "20px" }}
-            >
-              Already Registered?{" "}
-              <Link to="/Login" style={{ textDecoration: "none" }}>
-                Login
-              </Link>
-            </div>
-          </Card.Body>
-        </Card>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
     </>
   );
