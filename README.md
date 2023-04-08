@@ -7,7 +7,7 @@
 ## Project Links
 
 - Figma Prototype Link: https://www.figma.com/file/UmVD4qi6wpEvOtvPe4ZyCt/Ecycle?node-id=0%3A1&t=rj3T5OZ76MVEapvn-1
-- Frontend Deployment Link: 
+- Frontend Deployment Link: https://e-cycle-halifax.netlify.app/
 - Backend Deployment Link: https://e-cycle-halifax.onrender.com
 
 ## Access Instructions
