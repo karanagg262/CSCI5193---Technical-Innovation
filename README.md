@@ -13,8 +13,15 @@ Note that both Front-end and Back-end have been deployed successfully.
 
 ## Access Instructions
 
+Remote Access
 1. Access the Frontend deployment link as specified above.
 2. Create an account or login using the credentials provided below.
+
+Local Access
+1. Download the source code on the GitHub repository.
+2. Navigate to the Frontend folder.
+3. Run 'npm start'.
+4. Launch browser and visit 'http://localhost:3000/' (3000 is default port, may change depending on local machine).
 
 ## Login Credentials
 
