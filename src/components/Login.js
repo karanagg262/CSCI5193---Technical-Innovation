@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import signup from "../assets/signup.avif";
 import Navbar from "./Navbar";
+import axios from "axios";
 
 export const Login = () => {
   const { state } = useLocation();
@@ -17,7 +18,7 @@ export const Login = () => {
 
   let errorFlag = 0;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(email);
     console.log(password);
@@ -26,17 +27,33 @@ export const Login = () => {
       password,
     };
     setError(validateForm(formValue));
-    if (
-      errorFlag === 0 &&
-      (email === emailFromSignup || email === "test@gmail.com") &&
-      (password === passwordFromSignup || password === "H@alifax2023")
-    ) {
-      // navigate("/feed");
-      alert("User authenticated");
-      setEmail("");
-      setPassword("");
+    if (errorFlag === 0) {
+      localStorage.setItem("email", email);
+      try {
+        console.log("Inside login page");
+        console.log(formValue);
+        const response = await axios.post(
+          "https://localhost:8080/authenticateUser",
+          {
+            ...formValue,
+          }
+        );
+        alert(response.data.message);
+        console.log(response.data);
+        navigate("/feed");
+      } catch (error) {
+        if (error.response.status === 404) {
+          alert(error.response.data.message);
+        } else if (error.response.status === 401) {
+          alert(error.response.data.message);
+        } else {
+          console.log(error);
+        }
+        setEmail("");
+        setPassword("");
+      }
     } else {
-      alert("Incorrect email/password");
+      console.log(error);
     }
   };
 
@@ -59,7 +76,8 @@ export const Login = () => {
   };
 
   return (
-    <><Navbar />
+    <>
+      <Navbar />
       <div
         style={{
           display: "flex",

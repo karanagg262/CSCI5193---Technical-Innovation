@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import signup from "../assets/signup.avif";
+import axios from "axios";
 
 export const Signup = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ export const Signup = () => {
 
   let errorFlag = 0;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(email);
     console.log(firstName);
@@ -35,15 +36,30 @@ export const Signup = () => {
     };
     setError(validateForm(formValue));
     if (errorFlag === 0) {
-      alert("User Registered");
-      navigate("/", {
-        state: { emailFromSignup: email, passwordFromSignup: password },
-      });
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
+      localStorage.setItem("email", email);
+
+      try {
+        const response = await axios.post("http://localhost:8080/addUser", {
+          ...formValue,
+        });
+        alert(response.data.statusMessage);
+        console.log(response.data);
+        navigate("/Login");
+      } catch (error) {
+        if (error.response.status === 409) {
+          alert(error.response.data.message);
+        } else {
+          console.error(error.message);
+        }
+        // setFirstName("");
+        // setLastName("");
+        // setEmail("");
+        // setPassword("");
+        // setConfirmPassword("");
+        // setAddress("");
+      }
+    } else {
+      console.log(error);
     }
   };
 
@@ -213,6 +229,7 @@ export const Signup = () => {
                     name="password"
                     type={"password"}
                     value={password}
+                    placeholder="8+ characters"
                     onChange={(e) => setPassword(e.target.value)}
                     onSubmit={handleSubmit}
                     required
@@ -270,7 +287,7 @@ export const Signup = () => {
               style={{ marginTop: "20px" }}
             >
               Already Registered?{" "}
-              <Link to="/" style={{ textDecoration: "none" }}>
+              <Link to="/Login" style={{ textDecoration: "none" }}>
                 Login
               </Link>
             </div>

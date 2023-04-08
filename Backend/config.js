@@ -17,7 +17,8 @@
 //   db,
 // };
 module.exports = {
-    mongodb: {
-      uri: 'mongodb+srv://ecycle:ecycle@cluster0.uwe8xva.mongodb.net/?retryWrites=true&w=majority'
-    }
-  };
+  mongodb: {
+    uri: "mongodb+srv://ecycle:ecycle@cluster0.uwe8xva.mongodb.net/?retryWrites=true&w=majority",
+  },
+  port: 8080,
+};
