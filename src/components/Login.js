@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import signup from "../assets/signup.avif";
-import Navbar from "./Navbar";
 import axios from "axios";
 
 export const Login = () => {
@@ -77,7 +76,6 @@ export const Login = () => {
 
   return (
     <>
-      <Navbar />
       <div
         style={{
           display: "flex",
